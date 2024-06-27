@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+//command
+//git commit -am "เขียนไรก็ได้" -- บอกรายละเอียดที่แก้ไข
+//git push --ส่งขึ้น Githud
