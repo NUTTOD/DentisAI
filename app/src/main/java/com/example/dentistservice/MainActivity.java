@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     //fat rat
     //tomatoss
     //nikka
+    //hot wave name fat rat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
