@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     //ม้วนโอ้ก
     //fat rat
     //tomatoss
+    //nikka
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
