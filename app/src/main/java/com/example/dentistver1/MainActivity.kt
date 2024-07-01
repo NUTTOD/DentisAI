@@ -1,5 +1,4 @@
 package com.example.dentistver1
-import com.google.android.material.R
 
 import android.content.Intent
 import android.os.Bundle
