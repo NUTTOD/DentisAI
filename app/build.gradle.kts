@@ -60,7 +60,7 @@ dependencies {
     implementation(libs.facebook.login)
     implementation(libs.kotlin.stdlib)
     implementation(libs.play.services.auth)
-    implementation(libs.androidx.appcompat.v140)
+    //implementation(libs.androidx.appcompat.v140)
     implementation(libs.androidx.activity.ktx)
-    implementation("com.google.android.gms:play-services-auth:20.5.0")
+    //implementation("com.google.android.gms:play-services-auth:21.2.0")
 }
