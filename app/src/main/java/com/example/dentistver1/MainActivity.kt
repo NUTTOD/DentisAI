@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.FirebaseApp
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_menu)
 
         emailInput = findViewById(R.id.email_input)
         passwordInput = findViewById(R.id.password_input)
