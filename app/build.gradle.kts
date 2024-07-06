@@ -5,23 +5,20 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
 }
-
+repositories {
+    google()
+    mavenCentral()
+}
 android {
     namespace = "com.example.dentistver1"
-
-<<<<<<< HEAD
     compileSdk = 34
-
-=======
-    compileSdk = 33
     buildFeatures {
         buildConfig = true
     }
->>>>>>> ace7b749466f364648af160fe66d114ba9277019
     defaultConfig {
         applicationId = "com.example.dentistver1"
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -39,27 +36,31 @@ android {
         targetCompatibility(JavaVersion.VERSION_17)
     }
 }
+repositories {
+    google()
+    mavenCentral()
+}
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.4.2")
-    implementation("com.google.android.material:material:1.6.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.4.1")
-    implementation("androidx.navigation:navigation-ui-ktx:2.4.1")
-    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
-    implementation("com.google.firebase:firebase-analytics-ktx")
-    implementation("com.google.firebase:firebase-auth:22.0.0")
+    implementation(libs.androidx.core.ktx.v180)
+    implementation(libs.androidx.appcompat.v142)
+    implementation(libs.material.v160)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics.ktx)
+    implementation(libs.firebase.auth)
     implementation(libs.androidx.activity)
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    implementation("com.facebook.android:facebook-login:15.2.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
-    implementation("com.google.android.gms:play-services-auth:20.3.0")
-    implementation("androidx.appcompat:appcompat:1.4.0")
-    implementation("androidx.activity:activity-ktx:1.3.1")
-
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v113)
+    androidTestImplementation(libs.androidx.espresso.core.v340)
+    implementation(libs.facebook.login)
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.play.services.auth)
+    implementation(libs.androidx.appcompat.v140)
+    implementation(libs.androidx.activity.ktx)
+    implementation("com.google.android.gms:play-services-auth:20.5.0")
 }
