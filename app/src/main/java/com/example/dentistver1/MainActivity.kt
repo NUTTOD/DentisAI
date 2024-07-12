@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize buttons
         loginBtn = findViewById(R.id.login_btn)
-        signinBtn = findViewById(R.id.signin_btn)
+        signinBtn = findViewById(R.id.signinbtn)
 
         // Set onClickListener for signinBtn
         signinBtn.setOnClickListener {

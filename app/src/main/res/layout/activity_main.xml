@@ -56,13 +56,14 @@
             android:textSize="23sp" />
 
         <LinearLayout
+
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/signin_btn"
+                android:id="@+id/signinbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_marginTop="9dp"
@@ -77,7 +78,7 @@
                 app:icon="@drawable/baseline_manage_accounts_24" />
 
             <Button
-                android:id="@+id/signin_btn"
+                android:id="@+id/signin_btnbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_marginTop="9dp"
@@ -89,7 +90,8 @@
                 android:textColor="#FFFFFF"
                 android:textColorLink="#FFFFFF"
                 android:textSize="12sp"
-                app:icon="@drawable/baseline_app_settings_alt_24" />
+
+                />
 
         </LinearLayout>
 

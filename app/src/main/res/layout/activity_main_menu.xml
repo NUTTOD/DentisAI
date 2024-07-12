@@ -94,19 +94,53 @@
             android:textSize="16sp" />
 
     </LinearLayout>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <RelativeLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/main">
+        android:layout_height="462dp"
+        android:layout_gravity="center">
+
+    </RelativeLayout>
 
     <ImageButton
         android:id="@+id/imageButton"
 
-        android:layout_width="63dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="00dp"
+        android:layout_width="82dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="10dp"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/baseline_camera_alt_24" />
-    </RelativeLayout>
+
+    <!-- activity_main_menu.xml -->
+    <!-- activity_main_menu.xml -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="DuplicateIds">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_camera_alt_24"
+            tools:ignore="DuplicateIds" />
+
+        <Button
+            android:id="@+id/frontCameraButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Front Camera" />
+
+        <Button
+            android:id="@+id/backCameraButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back Camera" />
+
+    </LinearLayout>
 
 </LinearLayout>
