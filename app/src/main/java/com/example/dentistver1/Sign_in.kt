@@ -16,12 +16,11 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
 
-
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-    lateinit var sign_in_button: Button
+    private lateinit var sign_in_button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +38,8 @@ class SignInActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         // Set the onClickListener for the sign-in button
-        findViewById<Button>(R.id.sign_in_button).setOnClickListener {
+        sign_in_button = findViewById(R.id.sign_in_button)
+        sign_in_button.setOnClickListener {
             signIn()
         }
     }
@@ -81,6 +81,10 @@ class SignInActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             Log.d(TAG, "User signed in: ${user.displayName}")
+            // Proceed to the next activity
+            val intent = Intent(this, MainMenu::class.java)
+            startActivity(intent)
+            finish()
         } else {
             Log.d(TAG, "No user signed in")
         }

@@ -3,7 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dentistver1">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,13 +20,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DentistVer1"
         tools:targetApi="31">
+
         <activity
             android:name=".MainMenu"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <!-- Add this metadata element for Firebase configuration -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@mipmap/ic_launcher" /> <!-- Add this metadata element for Google Sign-In configuration -->
+            android:resource="@mipmap/ic_launcher" />
+
+        <!-- Add this metadata element for Google Sign-In configuration -->
         <meta-data
             android:name="com.google.android.gms.signin.default_web_client_id"
             android:value="@string/default_web_client_id" />
@@ -34,7 +48,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
