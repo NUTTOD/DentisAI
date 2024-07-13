@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -37,15 +38,6 @@
         android:layout_marginTop="16dp"
         android:text="ตรวจสอบช่องปาก ง่ายๆ ด้วย"
         android:textSize="16sp" />
-
-    <ImageView
-        android:id="@+id/image_view_app_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/app_icon"
-        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/text_view_use_app"
@@ -103,15 +95,52 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="462dp"
+        android:layout_gravity="center">
+
+    </RelativeLayout>
 
     <ImageButton
         android:id="@+id/imageButton"
 
-        android:layout_width="63dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="00dp"
+        android:layout_width="82dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="10dp"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/baseline_camera_alt_24" />
 
+    <!-- activity_main_menu.xml -->
+    <!-- activity_main_menu.xml -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="DuplicateIds">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_camera_alt_24"
+            tools:ignore="DuplicateIds" />
+
+        <Button
+            android:id="@+id/frontCameraButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Front Camera" />
+
+        <Button
+            android:id="@+id/backCameraButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back Camera" />
+
+    </LinearLayout>
 
 </LinearLayout>

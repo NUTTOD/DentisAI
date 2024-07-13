@@ -8,11 +8,16 @@ plugins {
 
 android {
     namespace = "com.example.dentistver1"
+
+<<<<<<< HEAD
     compileSdk = 34
+
+=======
+    compileSdk = 33
     buildFeatures {
         buildConfig = true
     }
-
+>>>>>>> ace7b749466f364648af160fe66d114ba9277019
     defaultConfig {
         applicationId = "com.example.dentistver1"
         minSdk = 23
