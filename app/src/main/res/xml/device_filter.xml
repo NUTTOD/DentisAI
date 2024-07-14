@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <usb-device vendor-id="13532" product-id="1041" /> <!-- Update with your USB camera's vendor and product IDs -->
+</resources>
