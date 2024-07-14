@@ -1,127 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/login_background"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainMenu">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/text_view_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="สวัสดี,"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/text_view_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="User"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/text_view_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="ตรวจสอบช่องปาก ง่ายๆ ด้วย"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/text_view_use_app"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:text="ใช้งาน"
-        android:textSize="20sp" />
+    <data>
+        <!-- Declare your variables here if using data binding -->
+    </data>
 
     <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="@drawable/login_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".MainMenu">
 
-        <Button
-            android:id="@+id/button_ai_assist"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ใช้ Al ช่วยเหลือ"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="สวัสดี,"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/text_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="User"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_view_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="ตรวจสอบช่องปาก ง่ายๆ ด้วย"
             android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/button_take_picture"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/text_view_use_app"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ถ่ายรูปรับผล"
-            android:textSize="16sp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="ใช้งาน"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_ai_assist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ใช้ AI ช่วยเหลือ"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/checkUsbButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Check USB" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_chat_bot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="พูดคุยกับบอท"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/imageButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Take Photo" />
+
+        </LinearLayout>
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/viewFinder"
+            android:layout_width="match_parent"
+            android:layout_height="224dp" />
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_chat_bot"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="แชทกับฟันพร้อม"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/button_consult"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="รับปรึกษาเรื่องย่องปาก"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <SurfaceView
-        android:id="@+id/surfaceView"
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_gravity="center" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="82dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="10dp"
-        android:scaleType="centerInside"
-        app:srcCompat="@drawable/baseline_camera_alt_24" />
-
-    <Button
-        android:id="@+id/frontCameraButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Front Camera" />
-
-    <Button
-        android:id="@+id/backCameraButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Back Camera" />
-
-</LinearLayout>
+</layout>

@@ -12,6 +12,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.android.gms.common.api.ApiException
 
+
+
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -56,7 +59,6 @@ class MainActivity : AppCompatActivity() {
 
         // Set onClickListener for loginBtn
         loginBtn.setOnClickListener {
-
             val intent = Intent(this, MainMenu::class.java)
             startActivity(intent)
 
