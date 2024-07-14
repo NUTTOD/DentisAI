@@ -3,6 +3,8 @@ package com.example.dentistver1
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.hardware.usb.UsbDevice
+import android.hardware.usb.UsbManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -12,6 +14,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.dentistver1.databinding.ActivityMainMenuBinding
+import com.serenegiant.usb.USBMonitor
+import com.serenegiant.usb.UVCCamera
+import com.serenegiant.usb.UVCCameraHandler
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -20,6 +25,8 @@ class MainMenu : AppCompatActivity() {
     private lateinit var binding: ActivityMainMenuBinding
     private lateinit var backgroundHandler: Handler
     private lateinit var backgroundThread: HandlerThread
+    private lateinit var usbMonitor: USBMonitor
+    private var uvcCameraHandler: UVCCameraHandler? = null
 
     companion object {
         private const val REQUEST_CAMERA_PERMISSION = 200
@@ -39,6 +46,8 @@ class MainMenu : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        usbMonitor = USBMonitor(this, onDeviceConnectListener)
+
         if (allPermissionsGranted()) {
             startCamera()
         } else {
@@ -53,10 +62,12 @@ class MainMenu : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         startBackgroundThread()
+        usbMonitor.register()
     }
 
     override fun onPause() {
         stopBackgroundThread()
+        usbMonitor.unregister()
         super.onPause()
     }
 
@@ -75,24 +86,50 @@ class MainMenu : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        // Initialize your USB camera here using the library of your choice
-        // For example, using a hypothetical USB camera library:
-        // usbCamera = UsbCameraManager.openCamera()
-        // usbCamera.setPreviewDisplay(binding.viewFinder)
-        // usbCamera.startPreview()
+        // USB camera initialization will be handled in the onDeviceConnectListener
     }
 
     private fun takePhoto() {
-        // Capture photo using the USB camera library
-        // For example:
-        // val photoFile = File(
-        //     outputDirectory,
-        //     SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis()) + ".jpg"
-        // )
-        // usbCamera.capturePhoto(photoFile)
-        // val savedUri = Uri.fromFile(photoFile)
-        // val msg = "Photo capture succeeded: $savedUri"
-        // Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+        val photoFile = File(
+            outputDirectory,
+            SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis()) + ".jpg"
+        )
+        uvcCameraHandler?.captureStill(photoFile.absolutePath) { result ->
+            val savedUri = Uri.fromFile(photoFile)
+            val msg = "Photo capture succeeded: $savedUri"
+            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val onDeviceConnectListener = object : USBMonitor.OnDeviceConnectListener {
+        override fun onAttach(device: UsbDevice?) {
+            usbMonitor.requestPermission(device)
+        }
+
+        override fun onDettach(device: UsbDevice?) {
+            uvcCameraHandler?.close()
+        }
+
+        override fun onConnect(device: UsbDevice?, ctrlBlock: USBMonitor.UsbControlBlock?, createNew: Boolean) {
+            uvcCameraHandler = UVCCameraHandler.createHandler(
+                this@MainMenu,
+                binding.viewFinder,
+                1,
+                UVCCamera.DEFAULT_PREVIEW_WIDTH,
+                UVCCamera.DEFAULT_PREVIEW_HEIGHT,
+                UVCCamera.FRAME_FORMAT_MJPEG
+            )
+            uvcCameraHandler?.open(ctrlBlock)
+            uvcCameraHandler?.startPreview()
+        }
+
+        override fun onDisconnect(device: UsbDevice?, ctrlBlock: USBMonitor.UsbControlBlock?) {
+            uvcCameraHandler?.close()
+        }
+
+        override fun onCancel(device: UsbDevice?) {
+            // Handle cancel event if needed
+        }
     }
 
     private fun allPermissionsGranted() = ContextCompat.checkSelfPermission(
