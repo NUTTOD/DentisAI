@@ -22,9 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="1dp"
             android:layout_marginTop="16dp"
-            android:text="สวัสดี,"
+            android:text="Bentist"
+            android:textColor="#000000"
             android:textSize="24sp" />
 
         <TextView
@@ -32,26 +33,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="8dp"
-            android:text="User"
+            android:text="AI Oral Disease Checker  "
+            android:textColor="#000000"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/text_view_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
-            android:text="ตรวจสอบช่องปาก ง่ายๆ ด้วย"
+            android:text="Easy oral cavity checking"
+            android:textColor="#000000"
             android:textSize="16sp" />
+
         <TextView
             android:id="@+id/text_view_use_app"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="ใช้งาน"
+            android:text="Using"
+            android:textColor="#000000"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -65,7 +70,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ใช้ AI ช่วยเหลือ"
+                android:text="AI oral checking"
                 android:textSize="16sp" />
 
             <Button
@@ -87,7 +92,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="พูดคุยกับบอท"
+                android:text="Chat bot"
                 android:textSize="16sp" />
 
             <Button
